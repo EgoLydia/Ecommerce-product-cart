@@ -1,10 +1,138 @@
-body{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+@import url("https://fonts.googleapis.com/css2?family=Heebo&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-*{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+* {
+  font-family: "Heebo", sans-serif;
+  font-weight: 400;
+}
+
+.product,
+.product-info {
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.product-img {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+.product-img:hover {
+  overflow: visible;
+}
+
+.product-actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  gap: 20px !important;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(238, 221, 221, 0.01);
+  cursor: pointer;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.product .product-img .product-actions:hover {
+  opacity: 1;
+  animation: zoomIn 0.1s ease 0s;
+}
+
+.product-wishlist,
+.product-quick-view,
+.product-cart {
+  background-color: #ffffff;
+  width: 40px;
+  border-radius: 30px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-wishlist:hover,
+.product-quick-view:hover,
+.product-cart:hover {
+  background-color: #fe6c61;
+  color: #ffff !important;
+  width: 40px;
+  border-radius: 30px;
+  height: 40px;
+}
+
+.product .product-info .product-price-cart {
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+}
+
+.product-price-cart:hover .product-price {
+  display: none;
+}
+
+.product-price-cart:hover .product-cartt {
+  display: block;
+  color: #fe6c61 !important;
+  animation: fadeInUp 0.4s ease 0s;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.brand {
+  background-color: #f0f0f0;
+}
+
+.brand-stripe {
+  background-color: #fe6c61 !important;
+}
+
+.col-md-6 p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #999999;
+}
+
+.col-md-6 h2 {
+  font-size: 36px;
+  line-height: 46px;
+  color: #333333;
+}
+
+.product-title:hover {
+  font-size: 14px;
+  line-height: 24px;
+  color: #fe6c61;
+}
+
+.product-title {
+  font-size: 14px;
+  line-height: 24px;
+  color: #333333;
+}
+
+.product-seller {
+  font-size: 10px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+.product-price {
+  font-size: 14px;
+  line-height: 24px;
+  color: #333333;
 }
