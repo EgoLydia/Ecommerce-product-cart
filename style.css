@@ -44,7 +44,7 @@ body {
   align-items: center;
 }
 
-.product .product-img .product-actions:hover {
+.product-actions:hover {
   opacity: 1;
   animation: zoomIn 0.1s ease 0s;
 }
@@ -89,6 +89,19 @@ body {
   font-size: 10px;
   line-height: 16px;
   font-weight: 700;
+}
+
+.product:hover .product-cartt {
+    display: block;
+    color: #fe6c61 !important;
+    animation: fadeInUp 0.4s ease 0s;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+.product:hover .product-price {
+    display: none;
 }
 
 .brand {
