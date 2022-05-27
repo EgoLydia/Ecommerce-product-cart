@@ -3,8 +3,74 @@ body{
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    background: linear-gradient(0deg, #57577f 40%, #73459280 100%);
 }
 
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Ubuntu';
+}
+
+.navbar {
+    background-color: rgba(249, 214, 189, 0.314);
+}
+
+.logo {
+    width: 70px;
+}
+
+.form-control {
+    background-color: rgb(251, 235, 224);
+}
+
+.btn {
+    background-color: rgb(35, 66, 93);
+    color: rgb(253, 222, 198);
+}
+
+.btn:hover {
+    background-color: rgb(114, 145, 173);
+    color: rgb(253, 222, 198);
+}
+
+.prenav h4{
+    font-size: 12px;
+    color: white;
+    padding: 10px;
+}
+
+.banner {
+    color: rgb(237, 225, 227);
+    background-color: #d0a9a961;
+    border-radius: 10px;
+}
+
+.bannerimage {
+    width: 100%;
+}
+
+.btn2 {
+    background-color: rgb(35, 66, 93);
+    color: rgb(253, 222, 198);
+    border:none;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.btn2:hover {
+    background-color: rgb(114, 145, 173);
+    color: rgb(253, 222, 198);
+}
+
+.partnerlogo {
+    width: 20px;
+}
+
+footer {
+    background-color: rgba(249, 214, 189, 0.314);
+}
+
+.nav-link {
+    color: aliceblue !important;
 }
