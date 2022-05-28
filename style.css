@@ -3,8 +3,26 @@ body{
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    background-color: rgb(35, 66, 93);
 }
 
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Ubuntu';
+}
+
+.navbar {
+    background-color: rgb(255, 206, 169);
+}
+
+.logo {
+    width: 70px;
+}
+
+.form-control {
+    background-color: rgb(251, 235, 224);
+}
+
+.btn {
+    background-color: rgb(35, 66, 93);
+    color: white;
 }
