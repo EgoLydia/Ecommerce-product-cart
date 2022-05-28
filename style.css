@@ -242,3 +242,30 @@ footer {
 .footertext {
     color: gray;
 }
+
+.modal {
+  display: none;
+  height: auto;
+  background-color: rgba(138, 175, 207, 0.753);
+  width: 25%;
+  padding: 20px;
+  left: 63%;
+  top: 15%;
+  border-radius: 5px;
+}
+
+.close {
+  color: brown;
+  float: right;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#modalBtn {
+  border: none;
+  background-color: white;
+}
+
+.cart-text {
+  text-align: center;
+}

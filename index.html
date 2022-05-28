@@ -81,8 +81,18 @@
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                   <div class="cart-section d-flex">
-                    <img class="cart" src="./images/shopping-cart-svgrepo-com.svg">
+                    <button id="modalBtn" type="button" ><img class="cart" src="./images/shopping-cart-svgrepo-com.svg"></button>
                     <h6 class="cart-items" id="item-number">0</h6>
+                  </div>
+                  <div id="modal" class="modal">
+                    <div class="content">
+                      <span class="close">&times;</span>
+                      <h5 class="cart-text">Cart</h5>
+                      <div class="cart-products row justify-content-center align-items-center">
+
+
+                      </div>
+                    </div>
                   </div>
                 </form>
               </div>
@@ -107,20 +117,22 @@
             </div>
           </div>
        </section>    
-    <section class="product-page pt-3">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-6">
-            <h2>Top Selling Products</h2>
-            <p>
-              Forget about struggling to do everything at once: taking care of
-              the family, running your business etc.
-            </p>
+       <section class="product-page pt-3">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-md-6">
+              <h2>Top Selling Products</h2>
+              <p>
+                Forget about struggling to do everything at once: taking care of
+                the family, running your business etc.
+              </p>
+            </div>
+          </div>
+          <div class="products row justify-content-center align-items-center">
+          </div>
           </div>
         </div>
-        </div>
-      </div>
-    </section>
+      </section>
     <section class="brand-page pt-3">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-center brand p-4">
