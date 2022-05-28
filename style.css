@@ -25,6 +25,7 @@ body{
 
 .cart-section {
     margin-left: 10px;
+    cursor: w;
 }
 
 .cart-items {
@@ -69,6 +70,7 @@ body{
     color: gray;
     margin-top: 10px;
     background-color: rgba(249, 214, 189, 0.314);
+    padding: 65px !important;
 }
 
 .bannerimage {
