@@ -17,92 +17,97 @@
     <title>Ecommerce Website</title>
   </head>
   <body>
-
-    <nav>
-      <div class="container">
-        <div>
-          <div class="row text-center prenav">
-            <div class="col-3">
-              <h4>Women's Sports</h4>
-            </div>
-            <div class="col-3">
-              <h4>Men's Sports</h4>
-            </div>
-            <div class="col-3">
-              <h4>Accessories</h4>
-            </div>
-            <div class="col-3">
-              <h4>Underwears</h4>
-            </div>
+    <!-- PreNavbar -->
+    <div>
+      <div class="container-fluid">
+        <div class="row text-center prenav bg-dark">
+          <div class="col-3">
+            <h4 class="link">Women's Sports</h4>
+          </div>
+          <div class="col-3">
+            <h4 class="link">Men's Sports</h4>
+          </div>
+          <div class="col-3">
+            <h4 class="link">Accessories</h4>
+          </div>
+          <div class="col-3">
+            <h4 class="link">Underwears</h4>
           </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <a class="navbar-brand" href="#">
-              <img class="logo" src="./Screenshot (188).png">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Fashion
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Men</a></li>
-                    <li><a class="dropdown-item" href="#">Women</a></li>
-                    <li><a class="dropdown-item" href="#">Children</a></li>
-                    <hr>
-                    <li><a class="dropdown-item" href="#">Unisex</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Contact</a>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search for item..." aria-label="Search">
-                <button class="btn" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
       </div>
-    </nav>
 
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <img src="./images/Screenshot (188).png" class="logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Fashion
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Men</a></li>
+                <li><a class="dropdown-item" href="#">Women</a></li>
+                <li><a class="dropdown-item" href="#">Children</a></li>
+                <hr>
+                <li><a class="dropdown-item" href="#">Unisex</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Contact</a>
+              </li>
+            </ul>
+            
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+              <div class="cart-section d-flex">
+                <img class="cart" src="./images/shopping-cart-svgrepo-com.svg">
+                <h6 class="cart-items">0</h6>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </nav>
+      </div>
+
+      <!-- Banner -->
     <section>
-      <div class="container p-5">
+      <div class="container-fluid ">
         <div class="row d-flex banner p-5">
-          <div class="col-lg-6 mb-5 p-lg-5  text-center text-lg-start">
-            <h4>Limited Time Offer!</h4><hr>
+          <div class="col-lg-6 mb-5 p-lg-5 text-center text-lg-start">
+            <h4>Limited Time Offer</h4><hr>
             <h1>WE ARE ON SALES!</h1>
+            <br>
             <p>Hats, Sunglasses, Gowns, Heel shoes etc</p>
             <button class="btn2" type="submit">More</button>
           </div>
-          <div class="col-lg-6 d-none d-md-block d-lg-block">
-            <img class="bannerimage" src="./freestocks-_3Q3tsJ01nc-unsplash.jpg">
+          <div class="col-lg-6 d-none d-md-block d-lg-block pe-5">
+            <img class="bannerimage" src="./images/freestocks-_3Q3tsJ01nc-unsplash.jpg">
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <footer class="py-3 my-4">
-          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2">Fashion</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2">Contact</a></li>
-          </ul>
-          <p class="text-center text-white">&copy; 2022 Ecommerce, Inc</p>
-        </footer>
-      </div>
-    </section>
+
+    <footer>
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Fashion</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2">Contact</a></li>
+      </ul>
+      <p class="text-center footertext">&copy; 2022 Ecommerce, Inc</p>
+    </footer>
+
+
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
