@@ -8,7 +8,7 @@ html, body {
 }
 
 * {
-  font-family: "Heebo", sans-serif;
+  font-family: "Ubuntu";
   font-weight: 400;
 }
 
@@ -157,6 +157,7 @@ html, body {
 
 .cart-section {
     margin-left: 10px;
+    cursor: w;
 }
 
 .cart-items {
@@ -201,6 +202,7 @@ html, body {
     color: gray;
     margin-top: 10px;
     background-color: rgba(249, 214, 189, 0.314);
+    padding: 65px !important;
 }
 
 .bannerimage {
@@ -226,6 +228,25 @@ html, body {
 }
 
 .btn2:hover {
+  background-color: rgb(114, 145, 173);
+  color: rgb(253, 222, 198);
+  transform: scale(0.85);
+  transition: 0.8s;
+  border-radius: 10px;
+}
+
+.btn3 {
+  background-color: rgb(35, 66, 93);
+  color: rgb(253, 222, 198);
+  border:none;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: 0.8s;
+}
+
+.btn3:hover {
     background-color: rgb(114, 145, 173);
     color: rgb(253, 222, 198);
     transform: scale(0.85);
@@ -239,4 +260,38 @@ footer {
 
 .footertext {
     color: gray;
+}
+
+.modal {
+  display: none;
+  height: auto;
+  background-color: rgba(138, 175, 207, 0.753);
+  width: 25%;
+  padding: 20px;
+  left: 63%;
+  top: 15%;
+  border-radius: 5px;
+}
+
+.close {
+  color: brown;
+  float: right;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#modalBtn {
+  border: none;
+  background-color: white;
+}
+
+.cart-text {
+  text-align: center;
+}
+
+@media (min-width:200px) and (max-width:767px) {
+  .modal {
+    width: 50%;
+    top: 50%;
+  }
 }
