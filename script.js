@@ -57,4 +57,19 @@ function addToCart(id){
     productInCart.push(productItem)
     console.log(productInCart);
   }
+  updateCart();
 }
+
+function updateCart(){
+  increment()
+}
+
+let itemNumber = document.getElementById("item-number");
+
+let count = 0;
+
+function increment() {
+    count = count + 1;
+    itemNumber.innerText = count;
+}
+
