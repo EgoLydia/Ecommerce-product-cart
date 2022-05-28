@@ -8,12 +8,21 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
+      crossorigin="anonymous"/>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,100;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,100;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Ecommerce Website</title>
   </head>
   <body>
@@ -72,31 +81,113 @@
                 <img class="cart" src="./images/shopping-cart-svgrepo-com.svg">
                 <h6 id="item-number">0</h6>
               </div>
-            </form>
+              <div class="col-3">
+                <h4 class="link">Men's Sports</h4>
+              </div>
+              <div class="col-3">
+                <h4 class="link">Accessories</h4>
+              </div>
+              <div class="col-3">
+                <h4 class="link">Underwears</h4>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+              <img src="./images/Screenshot (188).png" class="logo">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Fashion
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Men</a></li>
+                    <li><a class="dropdown-item" href="#">Women</a></li>
+                    <li><a class="dropdown-item" href="#">Children</a></li>
+                    <hr>
+                    <li><a class="dropdown-item" href="#">Unisex</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                  </li>
+                </ul>
+                
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                  <div class="cart-section d-flex">
+                    <img class="cart" src="./images/shopping-cart-svgrepo-com.svg">
+                    <h6 class="cart-items">0</h6>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>
+          </div>
+    
+          <!-- Banner -->
+        <section>
+          <div class="container-fluid ">
+            <div class="row d-flex banner p-5">
+              <div class="col-lg-6 mb-5 p-lg-5 text-center text-lg-start">
+                <h4>Limited Time Offer</h4><hr>
+                <h1>WE ARE ON SALES!</h1>
+                <br>
+                <p>Hats, Sunglasses, Gowns, Heel shoes etc</p>
+                <button class="btn2" type="submit">More</button>
+              </div>
+              <div class="col-lg-6 d-none d-md-block d-lg-block pe-5">
+                <img class="bannerimage" src="./images/freestocks-_3Q3tsJ01nc-unsplash.jpg">
+              </div>
+            </div>
+          </div>
+       </section>    
+    <section class="product-page pt-3">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-6">
+            <h2>Top Selling Products</h2>
+            <p>
+              Forget about struggling to do everything at once: taking care of
+              the family, running your business etc.
+            </p>
           </div>
         </div>
-      </nav>
-      </div>
-
-      <!-- Banner -->
-    <section>
-      <div class="container-fluid ">
-        <div class="row d-flex banner p-5">
-          <div class="col-lg-6 mb-5 p-lg-5 text-center text-lg-start">
-            <h4>Limited Time Offer</h4><hr>
-            <h1>WE ARE ON SALES!</h1>
-            <br>
-            <p>Hats, Sunglasses, Gowns, Heel shoes etc</p>
-            <button class="btn2" type="button">More</button>
-          </div>
-          <div class="col-lg-6 d-none d-md-block d-lg-block pe-5">
-            <img class="bannerimage" src="./images/freestocks-_3Q3tsJ01nc-unsplash.jpg">
-          </div>
         </div>
       </div>
     </section>
-
-
+    <section class="brand-page pt-3">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center brand p-4">
+          <div class="col-2 text-center align-items-center">
+            <img src="assets/partner-01.png" alt="" class="img-fluid" />
+          </div>
+          <div class="col-2">
+            <img src="assets/partner-05.png" alt="" class="img-fluid" />
+          </div>
+          <div class="col-2">
+            <img src="assets/partner-04.png" alt="" class="img-fluid" />
+          </div>
+          <div class="col-2">
+            <img src="assets/partner-03.png" alt="" class="img-fluid" />
+          </div>
+          <div class="col-2">
+            <img src="assets/partner-02.png" alt="" class="img-fluid" />
+          </div>
+        </div>
+        <div class="row brand-stripe p-1"></div>
+      </div>
+    </section>
     <footer>
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
@@ -105,12 +196,12 @@
       </ul>
       <p class="text-center footertext">&copy; 2022 Ecommerce, Inc</p>
     </footer>
-
-
-
+    <script src="products.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
