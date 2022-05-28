@@ -288,3 +288,10 @@ footer {
 .cart-text {
   text-align: center;
 }
+
+@media (min-width:200px) and (max-width:767px) {
+  .modal {
+    width: 50%;
+    top: 50%;
+  }
+}
