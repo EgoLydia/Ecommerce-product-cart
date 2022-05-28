@@ -228,6 +228,25 @@ html, body {
 }
 
 .btn2:hover {
+  background-color: rgb(114, 145, 173);
+  color: rgb(253, 222, 198);
+  transform: scale(0.85);
+  transition: 0.8s;
+  border-radius: 10px;
+}
+
+.btn3 {
+  background-color: rgb(35, 66, 93);
+  color: rgb(253, 222, 198);
+  border:none;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 30px;
+  transition: 0.8s;
+}
+
+.btn3:hover {
     background-color: rgb(114, 145, 173);
     color: rgb(253, 222, 198);
     transform: scale(0.85);
