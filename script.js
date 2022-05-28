@@ -28,17 +28,15 @@ function renderProducts() {
           <div class="product-seller">
             <p class="m-0"> ${product.seller}</p>
           </div>
-          <div class="product-price-cart">
+          <div class="product-price-cart mt-2">
             <div class="product-price">
               <p class="m-0"><small>$</small>${product.price}</p>
             </div>
             <div
               class="product-cartt d-flex align-items-center justify-content-center"
-            >
-              <div><i class="bi bi-cart-plus fs-5 me-2"></i></div>
-              <div>
+            onclick="addToCart(${product.id})" >
+              <i class="bi bi-cart-plus fs-5 me-2"></i>
                 <p class="m-0">ADD TO CART</p>
-              </div>
             </div>
           </div>
         </div>
@@ -49,8 +47,24 @@ function renderProducts() {
 
 renderProducts();
 
+const productInCart = []
+
+function addToCart(id){
+  if(productInCart.some((productItem) => productItem.id === id)){
+    alert('already exits');
+  }else{
+    const productItem = products.find((product) => product.id === id);
+    productInCart.push(productItem)
+    console.log(productInCart);
+  }
+  updateCart();
+}
+
+function updateCart(){
+  increment()
+}
+
 let itemNumber = document.getElementById("item-number");
-console.log(itemNumber);
 
 let count = 0;
 
@@ -58,3 +72,4 @@ function increment() {
     count = count + 1;
     itemNumber.innerText = count;
 }
+
