@@ -153,6 +153,7 @@ html, body {
 
 .cart {
     width: 20px;
+    cursor: pointer;
 }
 
 .cart-section {
@@ -263,14 +264,16 @@ footer {
 }
 
 .modal {
-  display: none;
-  height: auto;
-  background-color: rgba(138, 175, 207, 0.753);
-  width: 25%;
+  display: block;
+  background-color: rgb(185, 207, 226);
+  height: 500px;
+  width: 500px;
   padding: 20px;
-  left: 63%;
-  top: 15%;
   border-radius: 5px;
+  justify-content: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .close {
@@ -289,9 +292,41 @@ footer {
   text-align: center;
 }
 
-@media (min-width:200px) and (max-width:767px) {
-  .modal {
-    width: 50%;
-    top: 50%;
-  }
+.title {
+  font-size: 20px;
+  color: rgb(63, 63, 63);
 }
+
+.subtitle {
+  font-size: 15px;
+  color: rgb(63, 63, 63);
+}
+
+.prices {
+  color: rgb(63, 63, 63);
+}
+
+.counter{
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+ }
+ .counter-btn{
+  width: 30px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #202020;
+  cursor: pointer;
+ }
+ .count{
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+ }
+

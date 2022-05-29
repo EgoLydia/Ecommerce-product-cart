@@ -76,9 +76,9 @@ function increment() {
 }
 
 
-var modal = document.getElementById("modal");
-var modalBtn = document.getElementById("modalBtn");
-var span = document.getElementsByClassName("close")[0];
+let modal = document.getElementById("modal");
+let modalBtn = document.getElementById("modalBtn");
+let span = document.getElementsByClassName("close")[0];
 
 modalBtn.onclick = function() {
   modal.style.display = "block";
