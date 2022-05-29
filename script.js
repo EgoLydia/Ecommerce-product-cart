@@ -68,10 +68,23 @@ function addToCart(id){
 }
 
 function updateCart(){
-  renderCartItems()
-  increment();
+    renderCartItems()
+    increment();
+
+    // let close = document.querySelectorAll('.close')
+
+    // for (let i = 0; i < close.length; i++) {
+    //     close[i].addEventListener('click', (e) => {
+    //         const row = buttons[i].parentNode.parentNode;
+    //         row.parentNode.removeChild(row);
+    //         const indexToBeRemoved = productInCart.findIndex((products, index) => index === i);
+    //         productInCart.splice(indexToBeRemoved, 1);
+    //         console.log(updateCart);
+    //     })
+    // }
 
 }
+
 
 const renderCartItems = function () {
 	if (productInCart.length > 0) {
@@ -105,7 +118,10 @@ const renderCartItems = function () {
     cartProducts.innerHTML = `<p>Your cart is empty</p>`
     document.querySelector('.checkout').classList.add = 'hide'
   }
+  
 }
+
+
 
 let itemNumber = document.getElementById("item-number");
 let count = 0;
@@ -129,10 +145,10 @@ window.onclick = function(event) {
   }
 }
 
-const carty = document.querySelector('#main-record')
+const CartItems = document.querySelector('.cart-items')
 
 window.onload = () =>{
-    let mainRecord = [
+    let CartItems = [
         {
           id: 0,
           name: "T-shirt 1",
@@ -191,39 +207,5 @@ window.onload = () =>{
         },
         
     ]
-
-mainRecord.forEach(function (productInCart) {
-  carty.innerHTML += `<div class="cart-items d-flex">
-    <div class="image-box p-2">
-      <img style = "width: 100px;"src="${productInCart.imgSrc}"/>
-    </div>
-    <div class="p-2 col-3 mt-4">
-      <h1 class="title">T-shirt 1</h1>
-      <h3 class="subtitle">${productInCart.name}</h3>
-    </div>
-    <div class="counter p-2 col-4">
-      <div class="counter-btn">-</div>
-      <div class="count">1</div>
-      <div class="counter-btn">+</div>
-    </div>
-    <div class="prices p-5 col-2">
-      <div class="amount text-center">${productInCart.price}</div>
-    </div>
-    <div class="col-2 p-4">
-      <span class="close"><img src="./images/th.jpg" style="width: 20px;"></span>
-    </div>
-    </div>`
-})
-let close = document.querySelectorAll('.close')
-
-for (let i = 0; i < close.length; i++) {
-  close[i].addEventListener('click', (e) => {
-      const row = close[i].parentNode.parentNode
-      row.parentNode.removeChild(row)
-      const indexToBeRemoved = mainRecord.findIndex((productInCart, index) => index === i)
-      mainRecord.splice(indexToBeRemoved, 1)
-      console.log(mainRecord)
-  })
-}
 
 }
