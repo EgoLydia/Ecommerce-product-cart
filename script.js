@@ -76,12 +76,33 @@ const renderCartItems = function () {
 	if (productInCart.length > 0) {
 		let output = productInCart.map(product => {
 			return `
-        <div>${product.name}</div>
-        `
+      <div class="cart-items d-flex align-items-center">
+      <div class="image-box p-2">
+        <img src="${product.imgSrc}" style="width: 100px;"/>
+      </div>
+      <div class="p-2 col-3 mt-4">
+        <h1 class="title">${product.name}</h1>
+        <h3 class="subtitle">${product.seller}</h3>
+      </div>
+      <div class="counter p-2 col-4">
+      <div class="counter-btn">-</div>
+      <div class="count">1</div>
+      <div class="counter-btn">+</div>
+      </div>
+      <div class="prices p-5 col-2">
+        <div class="amount">${product.price}</div>
+      </div>
+      <div class="col-2 p-4">
+        <span class="close"><i class="bi bi-trash3 fs-5 me-3"></i></span>
+      </div>
+    </div>       
+     `
 		});
 		cartProducts.innerHTML = output.join('');
+    document.querySelector('.checkout').classList.remove = 'hide'
   }else{
     cartProducts.innerHTML = `<p>Your cart is empty</p>`
+    document.querySelector('.checkout').classList.add = 'hide'
   }
 }
 
