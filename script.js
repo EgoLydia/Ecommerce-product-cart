@@ -192,6 +192,8 @@ function addEvent() {
       subtotal.innerText = newTotal.toFixed(2)
       if(newTotal === 0){
         subtotal.innerHTML = `<div>0</div>`
+        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`
+
       }else{
         subtotal.innerText = newTotal.toFixed(2);
       }
