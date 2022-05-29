@@ -65,6 +65,7 @@ function addToCart(id){
 
 function updateCart(){
   increment();
+
 }
 
 let itemNumber = document.getElementById("item-number");
@@ -92,4 +93,103 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+const carty = document.querySelector('#main-record')
+
+window.onload = () =>{
+    let mainRecord = [
+        {
+          id: 0,
+          name: "T-shirt 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/1 (1).jpg",
+        },
+        {
+          id: 1,
+          name: "Product 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/1 (6).jpg",
+        },
+        {
+          id: 2,
+          name: "T-shirt 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/1 (2).jpg",
+        },
+        {
+          id: 3,
+          name: "Product 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/1 (4).jpg",
+        },
+        {
+          id: 4,
+          name: "T-shirt 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/01.jpg",
+        },
+        {
+          id: 5,
+          name: "Product 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/02.jpg",
+        },
+        {
+          id: 6,
+          name: "T-shirt 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/06.jpg",
+        },
+        {
+          id: 7,
+          name: "Product 1",
+          price: 29.99,
+          seller: "Amazon Stores",
+          imgSrc: "./assets/product-05.jpg",
+        },
+        
+    ]
+
+mainRecord.forEach(function (productInCart) {
+  carty.innerHTML += `<div class="cart-items d-flex">
+    <div class="image-box p-2">
+      <img style = "width: 100px;"src="${productInCart.imgSrc}"/>
+    </div>
+    <div class="p-2 col-3 mt-4">
+      <h1 class="title">T-shirt 1</h1>
+      <h3 class="subtitle">${productInCart.name}</h3>
+    </div>
+    <div class="counter p-2 col-4">
+      <div class="counter-btn">-</div>
+      <div class="count">1</div>
+      <div class="counter-btn">+</div>
+    </div>
+    <div class="prices p-5 col-2">
+      <div class="amount text-center">${productInCart.price}</div>
+    </div>
+    <div class="col-2 p-4">
+      <span class="close"><img src="./images/th.jpg" style="width: 20px;"></span>
+    </div>
+    </div>`
+})
+let close = document.querySelectorAll('.close')
+
+for (let i = 0; i < close.length; i++) {
+  close[i].addEventListener('click', (e) => {
+      const row = close[i].parentNode.parentNode
+      row.parentNode.removeChild(row)
+      const indexToBeRemoved = mainRecord.findIndex((productInCart, index) => index === i)
+      mainRecord.splice(indexToBeRemoved, 1)
+      console.log(mainRecord)
+  })
+}
+
 }
