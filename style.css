@@ -162,7 +162,6 @@ html, body {
 }
 
 .cart-items {
-    color: rgb(184, 10, 10);
     font-weight: 1000;
 }
 
@@ -343,7 +342,7 @@ footer {
     padding: 20px;
     border-radius: 10px;
     left: 55%;
-    top: 20%;
+    top: 15%;
   }
 }
 
@@ -357,6 +356,6 @@ footer {
     padding: 20px;
     border-radius: 10px;
     left: 35%;
-    top: 20%;
+    top: 15%;
   }
 }
