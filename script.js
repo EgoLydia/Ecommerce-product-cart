@@ -97,7 +97,7 @@ const renderCartItems = function () {
         <div class="amount">${product.price}</div>
       </div>
       <div class="col-2 p-4">
-        <span class="close"><i class="bi bi-trash3 fs-5 me-3"></i></span>
+        <span class="delete"><i class="bi bi-trash3 fs-5 me-3"></i></span>
       </div>
     </div>       
      `;
@@ -113,6 +113,14 @@ let count = 0;
 function increment() {
   count = count + 1;
   itemNumber.innerText = count;
+}
+function decrement(){
+  count -=1;
+  if(count == 0){
+    itemNumber.innerText = ""
+  }else{
+    itemNumber.innerText = count
+  }  
 }
 
 function addEvent() {
@@ -157,13 +165,14 @@ function addEvent() {
     });
   }
 
-  const close = document.querySelectorAll('.close')
-    for (let i = 0; i < close.length; i++) {
-        close[i].addEventListener('click', (e) => {
-            const row = close[i].parentNode.parentNode;
+  const deleteItem = document.querySelectorAll('.delete')
+    for (let i = 0; i < deleteItem.length; i++) {
+      deleteItem[i].addEventListener('click', (e) => {
+            const row = deleteItem[i].parentNode.parentNode;
             row.parentNode.removeChild(row);
             const indexToBeRemoved = productInCart.findIndex((product, index) => index === i);
             productInCart.splice(indexToBeRemoved, 1);
+            decrement()
         });
     }
 }
