@@ -1,4 +1,8 @@
 const productParent = document.querySelector('.products')
+const modal = document.getElementById("modal");
+const modalBtn = document.getElementById("modalBtn");
+let span = document.getElementsByClassName("close")[0];
+const cartProducts = document.querySelector('.cart-products')
 
 function renderProducts() {
     products.forEach((product) => {
@@ -64,7 +68,21 @@ function addToCart(id){
 }
 
 function updateCart(){
+  renderCartItems()
   increment();
+}
+
+const renderCartItems = function () {
+	if (productInCart.length > 0) {
+		let output = productInCart.map(product => {
+			return `
+        <div>${product.name}</div>
+        `
+		});
+		cartProducts.innerHTML = output.join('');
+  }else{
+    cartProducts.innerHTML = `<p>Your cart is empty</p>`
+  }
 }
 
 let itemNumber = document.getElementById("item-number");
@@ -74,11 +92,6 @@ function increment() {
     count = count + 1;
     itemNumber.innerText = count;
 }
-
-
-var modal = document.getElementById("modal");
-var modalBtn = document.getElementById("modalBtn");
-var span = document.getElementsByClassName("close")[0];
 
 modalBtn.onclick = function() {
   modal.style.display = "block";
