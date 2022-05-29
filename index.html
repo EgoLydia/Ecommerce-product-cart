@@ -81,28 +81,36 @@
                   <button class="btn btn-outline-success" type="submit">Search</button>
                   <div class="cart-section d-flex">
                     <img id="modalBtn" class="cart" src="./images/shopping-cart-svgrepo-com.svg">
-                    <h6 class="cart-items" id="item-number"></h6>
+                    <h6 class="cart-items" id="item-number">0</h6>
                   </div>
                   <div id="modal" class="modal">
                     <div class="content">
                       <div class="modal-header">
-                        <h5 class="cart-text">Cart</h5>
-                        <span class="close">&times;</span>
+                        <h5 class="cart-text text-center">Cart</h5>
+                        <span class="close text-center">&times;</span>
                       </div>
                       <div class="cart-products row justify-content-center align-items-center">
 
                         <hr>
                       </div>
-                      <div class=”checkout”>
-                        <div class="total d-flex">
-                          <div class="col-6"></div>
-                          <div class="col-4">
-                            <div class=”Subtotal”>Sub-Total</div>
+                      <div class="cart-products row justify-content-center align-items-center">
+                        <div class="cart-items d-flex">
+                          <div class="image-box p-2">
+                            <button class="btn3" type="button">Checkout</button>
                           </div>
-                          <div class="total-amount col-4">$29.99</div>
+                          <div class="p-2 col-3 mt-4">
+                          </div>
+                          <div class="counter p-2 col-4">
+                            <div class="count">Sub-Total</div>
+                          </div>
+                          <div class="prices p-5 col-2">
+                            <div class="amount text-center">$29.99</div>
+                          </div>
+                          <div class="col-2 p-4">
+                          </div>
                         </div>
-                        <button class="btn3 checkout">Checkout</button>
                       </div>
+                      
                     </div>
                   </div>
                 </form>
