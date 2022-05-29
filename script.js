@@ -54,20 +54,22 @@ function addToCart(id){
     alert('already exits');
   }else{
     const productItem = products.find((product) => product.id === id);
-    productInCart.push(productItem)
+    productInCart.push({
+      ...productItem,
+      unitQuantity:1
+    })
     console.log(productInCart);
   }
   updateCart();
 }
 
 function updateCart(){
-  increment()
+  increment();
 }
 
 let itemNumber = document.getElementById("item-number");
-
 let count = 0;
-
+  
 function increment() {
     count = count + 1;
     itemNumber.innerText = count;
