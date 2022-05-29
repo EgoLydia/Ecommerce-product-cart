@@ -28,26 +28,25 @@
     <title>Ecommerce Website</title>
   </head>
   <body>
+        <!-- PreNavbar -->
+        <div>
+          <div class="container-fluid">
+            <div class="row text-center prenav bg-dark">
+              <div class="col-3">
+                <h4 class="link">Women's Sports</h4>
+              </div>
+              <div class="col-3">
+                <h4 class="link">Men's Sports</h4>
+              </div>
+              <div class="col-3">
+                <h4 class="link">Accessories</h4>
+              </div>
+              <div class="col-3">
+                <h4 class="link">Underwears</h4>
+              </div>
+            </div>
+          </div>
     
-    <!-- PreNavbar -->
-    <div>
-      <div class="container-fluid">
-        <div class="row text-center prenav bg-dark">
-          <div class="col-3">
-            <h4 class="link">Women's Sports</h4>
-          </div>
-          <div class="col-3">
-            <h4 class="link">Men's Sports</h4>
-          </div>
-          <div class="col-3">
-            <h4 class="link">Accessories</h4>
-          </div>
-          <div class="col-3">
-            <h4 class="link">Underwears</h4>
-          </div>
-        </div>
-      </div>
-
           <!-- Navbar -->
           <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
@@ -81,20 +80,49 @@
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                   <div class="cart-section d-flex">
-                    <button id="modalBtn" type="button" ><img class="cart" src="./images/shopping-cart-svgrepo-com.svg"></button>
+                    <img id="modalBtn" class="cart" src="./images/shopping-cart-svgrepo-com.svg">
                     <h6 class="cart-items" id="item-number">0</h6>
                   </div>
                   <div id="modal" class="modal">
                     <div class="content">
-                      <span class="close">&times;</span>
-                      <h5 class="cart-text">Cart</h5>
-                      <div class="cart-products row justify-content-center align-items-center">
-
-
+                      <div class="modal-header">
+                        <h5 class="cart-text">Cart</h5>
+                        <span class="close">&times;</span>
                       </div>
-                    </div>
-                    <div>
-                      <button class="btn3" type="submit">Checkout</button>
+                      <div class="cart-products row justify-content-center align-items-center">
+                        <div class="cart-items d-flex">
+                          <div class="image-box p-2">
+                            <img src="./assets/01.jpg" style="width: 100px;"/>
+                          </div>
+                          <div class="p-2 col-3 mt-4">
+                            <h1 class="title">T-shirt 1</h1>
+                            <h3 class="subtitle">Amazon stores</h3>
+                          </div>
+                          <div class="counter p-2 col-4">
+                            <div class="counter-btn">+</div>
+                            <div class="count">2</div>
+                            <div class="counter-btn">-</div>
+                          </div>
+                          <div class="prices p-5 col-2">
+                            <div class="amount">$29.99</div>
+                          </div>
+                          <div class="col-2 p-4">
+                            <span class="close">&times;</span>
+                          </div>
+                        </div>
+                        <hr>
+                      </div>
+                      <div class=”checkout”>
+                        <div class="toal d-flex">
+                          <div class="col-6"></div>
+                          <div class="col-4">
+                            <div class=”Subtotal”>Sub-Total</div>
+                            <div class=”items”>1 item</div>
+                          </div>
+                          <div class="total-amount col-4">$29.99</div>
+                        </div>
+                        <button class="btn3">Checkout</button>
+                      </div>
                     </div>
                   </div>
                 </form>
@@ -120,22 +148,22 @@
             </div>
           </div>
        </section>    
-       <section class="product-page pt-3">
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="col-md-6">
-              <h2>Top Selling Products</h2>
-              <p>
-                Forget about struggling to do everything at once: taking care of
-                the family, running your business etc.
-              </p>
-            </div>
-          </div>
-          <div class="products row justify-content-center align-items-center">
-          </div>
+    <section class="product-page pt-3">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-6">
+            <h2>Top Selling Products</h2>
+            <p>
+              Forget about struggling to do everything at once: taking care of
+              the family, running your business etc.
+            </p>
           </div>
         </div>
-      </section>
+        <div class="products row justify-content-center align-items-center">
+        </div>
+        </div>
+      </div>
+    </section>
     <section class="brand-page pt-3">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-center brand p-4">
