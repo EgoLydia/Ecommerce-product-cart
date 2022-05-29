@@ -278,7 +278,7 @@ footer {
   width: 100%;
 }
 
-.close {
+.delete {
   color: brown;
   float: right;
   cursor: pointer;
