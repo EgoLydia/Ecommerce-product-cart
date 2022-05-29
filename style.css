@@ -279,7 +279,7 @@ footer {
   width: 100%;
 }
 
-.close {
+.close, .delete {
   color: brown;
   float: right;
   cursor: pointer;
