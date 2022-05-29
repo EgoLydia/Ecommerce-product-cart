@@ -26,8 +26,8 @@ function renderProducts() {
         </div>
 
         <div class="product-info text-center">
-          <div class="product-title">
-            <p class="m-0">${product.name}</p>
+          <div class="product-title ">
+            <p class="mx-0 mb-0 mt-3">${product.name}</p>
           </div>
           <div class="product-seller">
             <p class="m-0"> ${product.seller}</p>

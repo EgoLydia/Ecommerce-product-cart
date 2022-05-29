@@ -8,7 +8,7 @@ html, body {
 }
 
 * {
-  font-family: "Ubuntu";
+  font-family: "Heebo", sans-serif;
   font-weight: 400;
 }
 
@@ -193,6 +193,7 @@ html, body {
     color: gray;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .link {
@@ -275,7 +276,7 @@ footer {
   top: 20%;
 }
 
-.cart-products {
+.cart-products, .cart-checkout {
   width: 100%;
 }
 
