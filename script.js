@@ -1,12 +1,12 @@
-const productParent = document.querySelector('.products')
+const productParent = document.querySelector(".products");
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
-let span = document.getElementsByClassName("close")[0];
-const cartProducts = document.querySelector('.cart-products')
+const span = document.getElementsByClassName("close")[0];
+const cartProducts = document.querySelector(".cart-products");
 
 function renderProducts() {
-    products.forEach((product) => {
-      productParent.innerHTML += `
+  products.forEach((product) => {
+    productParent.innerHTML += `
       <div
         class="col-md-3 col-sm-6 product "
       >
@@ -46,51 +46,42 @@ function renderProducts() {
         </div>
         </div>
           `;
-    });
+  });
 }
 
 renderProducts();
 
-const productInCart = []
+const productInCart = [];
 
-function addToCart(id){
-  if(productInCart.some((productItem) => productItem.id === id)){
-    alert('already exits');
-  }else{
+function addToCart(id) {
+  if (productInCart.some((productItem) => productItem.id === id)) {
+    alert("already exits");
+  } else {
     const productItem = products.find((product) => product.id === id);
+    let subtotal = document.getElementById("subtotal");
+    let total = subtotal.innerText;
+    let newTotal = parseFloat(total) + parseFloat(productItem.price);
+    subtotal.innerText = newTotal.toFixed(2);
     productInCart.push({
       ...productItem,
-      unitQuantity:1
-    })
-    console.log(productInCart);
+      unitQuantity: 1,
+    });
   }
   updateCart();
 }
 
-function updateCart(){
-    renderCartItems()
-    increment();
-
-    // let close = document.querySelectorAll('.close')
-
-    // for (let i = 0; i < close.length; i++) {
-    //     close[i].addEventListener('click', (e) => {
-    //         const row = buttons[i].parentNode.parentNode;
-    //         row.parentNode.removeChild(row);
-    //         const indexToBeRemoved = productInCart.findIndex((products, index) => index === i);
-    //         productInCart.splice(indexToBeRemoved, 1);
-    //         console.log(updateCart);
-    //     })
-    // }
-
+function updateCart() {
+  increment();
+  renderCartItems();
+  addEvent();
 }
 
 
 const renderCartItems = function () {
-	if (productInCart.length > 0) {
-		let output = productInCart.map(product => {
-			return `
-      <div class="cart-items d-flex align-items-center">
+  if (productInCart.length > 0) {
+    let output = productInCart.map((product) => {
+      return `
+      <div class="cart-items d-flex align-items-center" id="${product.id}">
       <div class="image-box p-2">
         <img src="${product.imgSrc}" style="width: 100px;"/>
       </div>
@@ -99,9 +90,9 @@ const renderCartItems = function () {
         <h3 class="subtitle">${product.seller}</h3>
       </div>
       <div class="counter p-2 col-4">
-      <div class="counter-btn">-</div>
-      <div class="count">1</div>
-      <div class="counter-btn">+</div>
+        <div class="counter-btn minus">-</div>
+        <div class="unitQuantity">${product.unitQuantity}</div>
+        <div class="counter-btn plus">+</div>
       </div>
       <div class="prices p-5 col-2">
         <div class="amount">${product.price}</div>
@@ -110,36 +101,84 @@ const renderCartItems = function () {
         <span class="close"><i class="bi bi-trash3 fs-5 me-3"></i></span>
       </div>
     </div>       
-     `
-		});
-		cartProducts.innerHTML = output.join('');
-    document.querySelector('.checkout').classList.remove = 'hide'
-  }else{
-    cartProducts.innerHTML = `<p>Your cart is empty</p>`
-    document.querySelector('.checkout').classList.add = 'hide'
+     `;
+    });
+    cartProducts.innerHTML = output.join("");
+  } else {
+    cartProducts.innerHTML = `<p>Your cart is empty</p>`;
   }
-  
-}
 
-
+};
 
 let itemNumber = document.getElementById("item-number");
 let count = 0;
-  
 function increment() {
-    count = count + 1;
-    itemNumber.innerText = count;
+  count = count + 1;
+  itemNumber.innerText = count;
 }
 
-modalBtn.onclick = function() {
+function addEvent() {
+  const plus = document.querySelectorAll(".plus");
+
+  for (let i = 0; i < plus.length; i++) {
+    plus[i].addEventListener("click", (e) => {
+      let parent = plus[i].parentNode;
+      let number = parent.children[1].innerText;
+      parent.children[1].innerText = parseInt(number) + 1;
+      let id = parseInt(parent.parentNode.getAttribute("id"));
+      let index = productInCart.findIndex((product) => product.id === id);
+      if (index > -1) {
+        productInCart[index].unitQuantity += 1;
+      }
+      let subtotal = document.getElementById("subtotal");
+      let total = subtotal.innerText;
+      let productPrice = parent.parentNode.children[3].children[0].innerText;
+      let newTotal = parseFloat(total) + parseFloat(productPrice);
+      subtotal.innerText = newTotal.toFixed(2);
+    });
+  }
+
+  const minus = document.querySelectorAll(".minus");
+  for (let i = 0; i < minus.length; i++) {
+    minus[i].addEventListener("click", (e) => {
+      let parent = minus[i].parentNode;
+      let number = parent.children[1].innerText;
+      if (number > 1) {
+        parent.children[1].innerText = parseInt(number) - 1;
+        let id = parseInt(parent.parentNode.getAttribute("id"));
+        let index = productInCart.findIndex((product) => product.id === id);
+        if (index > -1) {
+          productInCart[index].unitQuantity -= 1;
+        }
+        let subtotal = document.getElementById("subtotal");
+        let total = subtotal.innerText;
+        let productPrice = parent.parentNode.children[3].children[0].innerText;
+        let newTotal = parseFloat(total) - parseFloat(productPrice);
+        subtotal.innerText = newTotal.toFixed(2);
+      }
+    });
+  }
+
+  const close = document.querySelectorAll('.close')
+    for (let i = 0; i < close.length; i++) {
+        close[i].addEventListener('click', (e) => {
+            const row = close[i].parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            const indexToBeRemoved = productInCart.findIndex((product, index) => index === i);
+            productInCart.splice(indexToBeRemoved, 1);
+        });
+    }
+}
+
+modalBtn.onclick = function () {
   modal.style.display = "block";
-}
+};
 
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
-}
+};
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
