@@ -156,6 +156,16 @@ function addEvent() {
       }
     });
   }
+
+  const close = document.querySelectorAll('.close')
+    for (let i = 0; i < close.length; i++) {
+        close[i].addEventListener('click', (e) => {
+            const row = close[i].parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            const indexToBeRemoved = productInCart.findIndex((product, index) => index === i);
+            productInCart.splice(indexToBeRemoved, 1);
+        });
+    }
 }
 
 modalBtn.onclick = function () {
