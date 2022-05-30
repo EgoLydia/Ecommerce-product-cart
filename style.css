@@ -158,10 +158,10 @@ html, body {
 
 .cart-section {
     margin-left: 10px;
-    cursor: w;
+    cursor: pointer;
 }
 
-.cart-items {
+.cart-items, .total {
     color: rgb(184, 10, 10);
     font-weight: 1000;
 }
