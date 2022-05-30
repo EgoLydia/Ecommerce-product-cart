@@ -8,7 +8,7 @@ html, body {
 }
 
 * {
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
 }
 
@@ -192,6 +192,7 @@ html, body {
     color: gray;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .link {
@@ -263,7 +264,7 @@ footer {
 }
 
 .modal {
-  display: block;
+  display: none;
   background-color: white;
   box-shadow: 0px 0px 42px 4px #cccccc99 ;
   height: 500px;
@@ -274,11 +275,11 @@ footer {
   top: 20%;
 }
 
-.cart-products {
+.cart-products, .cart-checkout {
   width: 100%;
 }
 
-.close {
+.close, .delete {
   color: brown;
   float: right;
   cursor: pointer;
@@ -334,7 +335,7 @@ footer {
 
 @media (min-width: 1200px) {
   .modal {
-    display: block;
+    display: none;
     background-color: white;
     box-shadow: 0px 0px 42px 4px #cccccc99 ;
     height: 500px;
@@ -348,7 +349,7 @@ footer {
 
 @media (min-width: 767px) and (max-width: 1199px) {
   .modal {
-    display: block;
+    display: none;
     background-color: white;
     box-shadow: 0px 0px 42px 4px #cccccc99 ;
     height: 500px;
