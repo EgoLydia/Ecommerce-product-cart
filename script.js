@@ -26,7 +26,6 @@ function renderProducts() {
             </div>
           </div>
         </div>
-
         <div class="product-info text-center">
           <div class="product-title ">
             <p class="mx-0 mb-0 mt-3">${product.name}</p>
@@ -249,3 +248,10 @@ window.onclick = function (event) {
 };
 
 load();
+function checkOut() {
+  if(productInCart.length == 0)
+    alert("No Items were added to cart");
+
+  else
+    alert("Success!")
+}

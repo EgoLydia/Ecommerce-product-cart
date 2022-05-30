@@ -29,7 +29,7 @@
   </head>
   <body>
         <!-- PreNavbar -->
-        <div>
+        <div class=" fixed-top">
           <div class="container-fluid">
             <div class="row text-center prenav bg-dark">
               <div class="col-3">
@@ -90,23 +90,17 @@
                         <span class="close text-center">&times;</span>
                       </div>
                       <div class="cart-products row justify-content-center align-items-center">
-                        
+                        <!-- renderCartItems -->
                         <hr>
                         <div class="text-center">Your cart is empty!</div>
                       </div>
                       <div class="cart-checkout row">
-                        <div class="total d-flex mt-5 justify-content-end">
-                          <div class="counter col-4">
-                            <div class="count">Sub-Total</div>
-                          </div>
-                          <div class="prices col-2">
-                            <div class="amount text-center" id="subtotal">0</div>
-                          </div>
-                        </div>
-                        <div class="image-box p-2 text-center">
-                          <button class="btn3" type="button">Checkout</button>
-                        </div>
-
+                       <div class="total d-flex mt-5 justify-content-end">
+                      <div class="cart-checkout row justify-content-center align-items-center">
+                        <div class="cart-items d-flex">
+                    </div>
+                      <div class="text-center">
+                        <button onclick="checkOut()" class="btn3" type="button">Checkout</button>
                       </div>
                       
                     </div>
@@ -118,7 +112,7 @@
           </div>
     
           <!-- Banner -->
-        <section>
+        <section class="banner-margin">
           <div class="container-fluid ">
             <div class="row d-flex banner p-5">
               <div class="col-lg-6 mb-5 p-lg-5 text-center text-lg-start">
@@ -146,6 +140,7 @@
           </div>
         </div>
         <div class="products row justify-content-center align-items-center">
+          <!-- renderProducts -->
         </div>
         </div>
       </div>

@@ -56,3 +56,4 @@ const products = [
         imgSrc: "./assets/product-05.jpg",
       }
 ]
+
