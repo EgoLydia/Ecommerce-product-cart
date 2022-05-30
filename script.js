@@ -56,17 +56,18 @@ renderProducts();
 let productInCart = [];
 
 function load() {
-  cart.forEach(productItem => {
+  cart.forEach((productItem) => {
     let subtotal = document.getElementById("subtotal");
     let total = subtotal.innerText;
-    let newTotal = parseFloat(total) + parseFloat(productItem.price);
+    let newTotal =
+      parseFloat(total) +
+      productItem.unitQuantity * parseFloat(productItem.price);
     subtotal.innerText = newTotal.toFixed(2);
-    productInCart.push(productItem)
-    increment(productItem.unitQuantity)
-  })
+    productInCart.push(productItem);
+    increment(productItem.unitQuantity);
+  });
 
   updateCart();
-
 }
 
 function addToCart(id) {
@@ -76,11 +77,12 @@ function addToCart(id) {
       productInCart[index].unitQuantity += 1;
       let subtotal = document.getElementById("subtotal");
       let total = subtotal.innerText;
-      let productPrice = productInCart[index].price;b
+      let productPrice = productInCart[index].price;
       let newTotal = parseFloat(total) + parseFloat(productPrice);
-      subtotal.innerText = newTotal.toFixed(2)
+      subtotal.innerText = newTotal.toFixed(2);
       increment(1);
-
+      updateCart();
+      save();
     }
   } else {
     const productItem = products.find((product) => product.id === id);
@@ -93,12 +95,9 @@ function addToCart(id) {
       unitQuantity: 1,
     });
     increment(1);
-
+    updateCart();
+    save();
   }
-  updateCart();
-
-  save()
-
 }
 
 function save() {
@@ -143,7 +142,7 @@ const renderCartItems = function () {
 let itemNumber = document.getElementById("item-number");
 let count = 0;
 function increment(unitQuantity) {
-  count +=parseInt(unitQuantity);
+  count += parseInt(unitQuantity);
   itemNumber.innerText = count;
 }
 
@@ -170,13 +169,13 @@ function addEvent() {
       let index = productInCart.findIndex((product) => product.id === id);
       if (index > -1) {
         productInCart[index].unitQuantity += 1;
+        let subtotal = document.getElementById("subtotal");
+        let total = subtotal.innerText;
+        let productPrice = parent.parentNode.children[3].children[0].innerText;
+        let newTotal = parseFloat(total) + parseFloat(productPrice);
+        subtotal.innerText = newTotal.toFixed(2);
+        save();
       }
-      let subtotal = document.getElementById("subtotal");
-      let total = subtotal.innerText;
-      let productPrice = parent.parentNode.children[3].children[0].innerText;
-      let newTotal = parseFloat(total) + parseFloat(productPrice);
-      subtotal.innerText = newTotal.toFixed(2);
-      save();
     });
   }
 
@@ -184,7 +183,7 @@ function addEvent() {
   for (let i = 0; i < minus.length; i++) {
     minus[i].addEventListener("click", (e) => {
       let parent = minus[i].parentNode;
-      let number = parent.children[1].innerText;
+      let number = parseInt(parent.children[1].innerText);
       if (number > 1) {
         parent.children[1].innerText = parseInt(number) - 1;
         itemNumber.innerHTML = parent.children[1].innerText;
@@ -193,13 +192,14 @@ function addEvent() {
         let index = productInCart.findIndex((product) => product.id === id);
         if (index > -1) {
           productInCart[index].unitQuantity -= 1;
+          let subtotal = document.getElementById("subtotal");
+          let total = subtotal.innerText;
+          let productPrice =
+            parent.parentNode.children[3].children[0].innerText;
+          let newTotal = parseFloat(total) - parseFloat(productPrice);
+          subtotal.innerText = newTotal.toFixed(2);
+          save();
         }
-        let subtotal = document.getElementById("subtotal");
-        let total = subtotal.innerText;
-        let productPrice = parent.parentNode.children[3].children[0].innerText;
-        let newTotal = parseFloat(total) - parseFloat(productPrice);
-        subtotal.innerText = newTotal.toFixed(2);
-        save();
       }
     });
   }
@@ -211,24 +211,25 @@ function addEvent() {
       row.parentNode.removeChild(row);
       let id = parseInt(row.getAttribute("id"));
       let index = productInCart.findIndex((product) => product.id === id);
-      let unitQuantity = productInCart[index].unitQuantity;
-      productInCart.splice(index, 1);
-      decrement(unitQuantity);
-      let subtotal = document.getElementById("subtotal");
-      let total = subtotal.innerText;
-      let productPrice = row.children[3].children[0].innerText;
-      let newTotal =
-        parseFloat(total) - unitQuantity * parseFloat(productPrice);
-
-      subtotal.innerText = newTotal.toFixed(2);
-      if (newTotal < 1) {
-        subtotal.innerHTML = `<div>0</div>`;
-        
-        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
-      } else {
+      if (index > -1) {
+        let unitQuantity = productInCart[index].unitQuantity;
+        productInCart.splice(index, 1);
+        decrement(unitQuantity);
+        let subtotal = document.getElementById("subtotal");
+        let total = subtotal.innerText;
+        let productPrice = row.children[3].children[0].innerText;
+        let newTotal =
+          parseFloat(total) - unitQuantity * parseFloat(productPrice);
         subtotal.innerText = newTotal.toFixed(2);
+        if (newTotal < 1) {
+          subtotal.innerHTML = `<div>0</div>`;
+
+          cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
+        } else {
+          subtotal.innerText = newTotal.toFixed(2);
+        }
+        save();
       }
-      save();
     });
   }
 }
@@ -248,4 +249,3 @@ window.onclick = function (event) {
 };
 
 load();
-
