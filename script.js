@@ -1,4 +1,3 @@
-
 const productParent = document.querySelector(".products");
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
@@ -97,7 +96,7 @@ const renderCartItems = function () {
         <h1 class="title">${product.name}</h1>
         <h3 class="subtitle">${product.seller}</h3>
       </div>
-      <div class="counter p-2 col-2">
+      <div class="counter p-2 col-4">
         <div class="counter-btn minus">-</div>
         <div class="unitQuantity">${product.unitQuantity}</div>
         <div class="counter-btn plus">+</div>
@@ -105,7 +104,7 @@ const renderCartItems = function () {
       <div class="prices p-5 col-2">
         <div class="amount">${product.price}</div>
       </div>
-      <div class="col-2 p-2">
+      <div class="col-2 p-4">
         <span class="delete"><i class="bi bi-trash3 fs-5 me-3"></i></span>
       </div>
     </div>       
@@ -220,5 +219,5 @@ window.onclick = function (event) {
 };
 
 function checkOut() {
-    alert("Item has been updated!");
+  alert("Success!");
 }
