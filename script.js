@@ -219,5 +219,9 @@ window.onclick = function (event) {
 };
 
 function checkOut() {
-  alert("Success!");
+  if(productInCart.length == 0)
+    alert("No Items were added to cart");
+
+  else
+    alert("Success!")
 }
