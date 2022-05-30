@@ -165,7 +165,8 @@ html, body {
     cursor: pointer;
 }
 
-.cart-items {
+.cart-items, .total {
+    color: rgb(184, 10, 10);
     font-weight: 1000;
 }
 
@@ -321,7 +322,7 @@ footer {
 }
 
 .counter{
-  width: 20%;
+  /* width: 20%; */
   display: flex;
   justify-content: space-between;
   align-items: center

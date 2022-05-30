@@ -1,3 +1,5 @@
+let cart = JSON.parse(localStorage.getItem("shopping-cart")) || [];
+
 const productParent = document.querySelector(".products");
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
@@ -50,20 +52,37 @@ function renderProducts() {
 
 renderProducts();
 
-const productInCart = [];
+let productInCart = [];
+
+function load() {
+  cart.forEach((productItem) => {
+    let subtotal = document.getElementById("subtotal");
+    let total = subtotal.innerText;
+    let newTotal =
+      parseFloat(total) +
+      productItem.unitQuantity * parseFloat(productItem.price);
+    subtotal.innerText = newTotal.toFixed(2);
+    productInCart.push(productItem);
+    increment(productItem.unitQuantity);
+  });
+
+  updateCart();
+}
 
 function addToCart(id) {
   if (productInCart.some((productItem) => productItem.id === id)) {
-    // alert("exists");
     let index = productInCart.findIndex((product) => product.id === id);
     if (index > -1) {
       productInCart[index].unitQuantity += 1;
-
-    let subtotal = document.getElementById("subtotal");
-    let total = subtotal.innerText;
-    let productPrice = productInCart[index].price
-    let newTotal = parseFloat(total) + parseFloat(productPrice);
-    subtotal.innerText = newTotal.toFixed(2);}
+      let subtotal = document.getElementById("subtotal");
+      let total = subtotal.innerText;
+      let productPrice = productInCart[index].price;
+      let newTotal = parseFloat(total) + parseFloat(productPrice);
+      subtotal.innerText = newTotal.toFixed(2);
+      increment(1);
+      updateCart();
+      save();
+    }
   } else {
     const productItem = products.find((product) => product.id === id);
     let subtotal = document.getElementById("subtotal");
@@ -74,12 +93,17 @@ function addToCart(id) {
       ...productItem,
       unitQuantity: 1,
     });
+    increment(1);
+    updateCart();
+    save();
   }
-  updateCart();
+}
+
+function save() {
+  localStorage.setItem("shopping-cart", JSON.stringify(productInCart));
 }
 
 function updateCart() {
-  increment();
   renderCartItems();
   addEvent();
 }
@@ -111,17 +135,16 @@ const renderCartItems = function () {
      `;
     });
     cartProducts.innerHTML = output.join("");
-  } else {
-    cartProducts.innerHTML = `<p>Your cart is empty</p>`;
   }
 };
 
 let itemNumber = document.getElementById("item-number");
 let count = 0;
-function increment() {
-  count = count + 1;
+function increment(unitQuantity) {
+  count += parseInt(unitQuantity);
   itemNumber.innerText = count;
 }
+
 function decrement(unitQuantity) {
   count -= unitQuantity;
 
@@ -140,17 +163,18 @@ function addEvent() {
       let parent = plus[i].parentNode;
       let number = parent.children[1].innerText;
       parent.children[1].innerHTML = parseInt(number) + 1;
-      increment()
+      increment(1);
       let id = parseInt(parent.parentNode.getAttribute("id"));
       let index = productInCart.findIndex((product) => product.id === id);
       if (index > -1) {
         productInCart[index].unitQuantity += 1;
+        let subtotal = document.getElementById("subtotal");
+        let total = subtotal.innerText;
+        let productPrice = parent.parentNode.children[3].children[0].innerText;
+        let newTotal = parseFloat(total) + parseFloat(productPrice);
+        subtotal.innerText = newTotal.toFixed(2);
+        save();
       }
-      let subtotal = document.getElementById("subtotal");
-      let total = subtotal.innerText;
-      let productPrice = parent.parentNode.children[3].children[0].innerText;
-      let newTotal = parseFloat(total) + parseFloat(productPrice);
-      subtotal.innerText = newTotal.toFixed(2);
     });
   }
 
@@ -158,21 +182,23 @@ function addEvent() {
   for (let i = 0; i < minus.length; i++) {
     minus[i].addEventListener("click", (e) => {
       let parent = minus[i].parentNode;
-      let number = parent.children[1].innerText;
+      let number = parseInt(parent.children[1].innerText);
       if (number > 1) {
         parent.children[1].innerText = parseInt(number) - 1;
         itemNumber.innerHTML = parent.children[1].innerText;
-        decrement(1)
+        decrement(1);
         let id = parseInt(parent.parentNode.getAttribute("id"));
         let index = productInCart.findIndex((product) => product.id === id);
         if (index > -1) {
           productInCart[index].unitQuantity -= 1;
+          let subtotal = document.getElementById("subtotal");
+          let total = subtotal.innerText;
+          let productPrice =
+            parent.parentNode.children[3].children[0].innerText;
+          let newTotal = parseFloat(total) - parseFloat(productPrice);
+          subtotal.innerText = newTotal.toFixed(2);
+          save();
         }
-        let subtotal = document.getElementById("subtotal");
-        let total = subtotal.innerText;
-        let productPrice = parent.parentNode.children[3].children[0].innerText;
-        let newTotal = parseFloat(total) - parseFloat(productPrice);
-        subtotal.innerText = newTotal.toFixed(2);
       }
     });
   }
@@ -184,21 +210,24 @@ function addEvent() {
       row.parentNode.removeChild(row);
       let id = parseInt(row.getAttribute("id"));
       let index = productInCart.findIndex((product) => product.id === id);
-      let unitQuantity = productInCart[index].unitQuantity;
-      productInCart.splice(index, 1);
-      decrement(unitQuantity);
-      let subtotal = document.getElementById("subtotal");
-      let total = subtotal.innerText;
-      let productPrice = row.children[3].children[0].innerText;
-      let newTotal =
-        parseFloat(total) - unitQuantity * parseFloat(productPrice);
-
-      subtotal.innerText = newTotal.toFixed(2);
-      if (newTotal < 1) {
-        subtotal.innerHTML = `<div>0</div>`;
-        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
-      } else {
+      if (index > -1) {
+        let unitQuantity = productInCart[index].unitQuantity;
+        productInCart.splice(index, 1);
+        decrement(unitQuantity);
+        let subtotal = document.getElementById("subtotal");
+        let total = subtotal.innerText;
+        let productPrice = row.children[3].children[0].innerText;
+        let newTotal =
+          parseFloat(total) - unitQuantity * parseFloat(productPrice);
         subtotal.innerText = newTotal.toFixed(2);
+        if (newTotal < 1) {
+          subtotal.innerHTML = `<div>0</div>`;
+
+          cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
+        } else {
+          subtotal.innerText = newTotal.toFixed(2);
+        }
+        save();
       }
     });
   }
@@ -218,6 +247,7 @@ window.onclick = function (event) {
   }
 };
 
+load();
 function checkOut() {
   if(productInCart.length == 0)
     alert("No Items were added to cart");
