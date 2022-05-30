@@ -30,8 +30,8 @@
   <body>
         <!-- PreNavbar -->
         <div>
-          <div class="container-fluid">
-            <div class="row text-center prenav bg-dark">
+          <div class="container-fluid prenav">
+            <div class="row text-center">
               <div class="col-3">
                 <h4 class="link">Women's Sports</h4>
               </div>
@@ -109,13 +109,13 @@
                             <div class="count">SubTotal</div>
                           </div>
                           <div class="prices p-5 col-2">
-                            <div class="amount text-center" id="subtotal">0</div>
+                            <div id="amount" class="amount text-center" id="subtotal">0</div>
                           </div>
                         </div>
                       </div>
                     </div>
                       <div class="text-center">
-                        <button class="btn3" type="button">Checkout</button>
+                        <button id="checkout" onclick="checkOut()" class="btn3" type="button">Checkout</button>
                       </div>
                       
                     </div>
