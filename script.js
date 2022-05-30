@@ -24,10 +24,9 @@ function renderProducts() {
             </div>
           </div>
         </div>
-
         <div class="product-info text-center">
-          <div class="product-title">
-            <p class="m-0">${product.name}</p>
+          <div class="product-title ">
+            <p class="mx-0 mb-0 mt-3">${product.name}</p>
           </div>
           <div class="product-seller">
             <p class="m-0"> ${product.seller}</p>
@@ -55,8 +54,17 @@ const productInCart = [];
 
 function addToCart(id) {
   if (productInCart.some((productItem) => productItem.id === id)) {
-    alert("already exits");
-  } else {
+    // let index = productInCart.findIndex((product) => product.id === id);
+    // if (index > -1) {
+    //   productInCart[index].unitQuantity += 1;
+    
+    // let subtotal = document.getElementById("subtotal");
+    // let total = subtotal.innerText;
+    // let productPrice = parent.parentNode.children[3].children[0].innerText;
+    // let newTotal = parseFloat(total) + parseFloat(productPrice);
+    // subtotal.innerText = newTotal.toFixed(2);
+    alert('done')
+   } else {
     const productItem = products.find((product) => product.id === id);
     let subtotal = document.getElementById("subtotal");
     let total = subtotal.innerText;
@@ -114,13 +122,13 @@ function increment() {
   count = count + 1;
   itemNumber.innerText = count;
 }
-function decrement(){
-  count -=1;
-  if(count == 0){
-    itemNumber.innerText = ""
-  }else{
-    itemNumber.innerText = count
-  }  
+function decrement() {
+  count -= 1;
+  if (count == 0) {
+    itemNumber.innerText = "";
+  } else {
+    itemNumber.innerText = count;
+  }
 }
 
 function addEvent() {
@@ -165,16 +173,31 @@ function addEvent() {
     });
   }
 
-  const deleteItem = document.querySelectorAll('.delete')
-    for (let i = 0; i < deleteItem.length; i++) {
-      deleteItem[i].addEventListener('click', (e) => {
-            const row = deleteItem[i].parentNode.parentNode;
-            row.parentNode.removeChild(row);
-            const indexToBeRemoved = productInCart.findIndex((product, index) => index === i);
-            productInCart.splice(indexToBeRemoved, 1);
-            decrement()
-        });
-    }
+  const deleteItem = document.querySelectorAll(".delete");
+  for (let i = 0; i < deleteItem.length; i++) {
+    deleteItem[i].addEventListener("click", (e) => {
+      const row = deleteItem[i].parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      const indexToBeRemoved = productInCart.findIndex(
+        (product, index) => index === i
+      );
+      let unitQuantity = productInCart[indexToBeRemoved].unitQuantity
+      productInCart.splice(indexToBeRemoved, 1);
+      decrement();
+      let subtotal = document.getElementById("subtotal");
+      let total = subtotal.innerText;
+      let productPrice = row.children[3].children[0].innerText;
+      let newTotal = parseFloat(total) - unitQuantity * parseFloat(productPrice);
+      subtotal.innerText = newTotal.toFixed(2)
+      if(newTotal === 0){
+        subtotal.innerHTML = `<div>0</div>`
+        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`
+      }else{
+        subtotal.innerText = newTotal.toFixed(2);
+      }
+
+    });
+  }
 }
 
 modalBtn.onclick = function () {
@@ -190,5 +213,3 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
-
-

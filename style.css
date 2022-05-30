@@ -8,7 +8,7 @@ html, body {
 }
 
 * {
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
 }
 
@@ -192,6 +192,7 @@ html, body {
     color: gray;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .link {
@@ -275,18 +276,11 @@ footer {
   content: inherit;
 }
 
-.cart-products {
+.cart-products, .cart-checkout {
   width: 100%;
 }
 
-.delete {
-  color: brown;
-  float: right;
-  cursor: pointer;
-  font-size: 25px;
-}
-
-.close {
+.close, .delete {
   color: brown;
   float: right;
   cursor: pointer;
