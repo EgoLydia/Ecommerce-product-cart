@@ -270,7 +270,7 @@ footer {
 .modal {
   display: none;
   background-color: white;
-  box-shadow: 0px 0px 42px 4px #cccccc99 ;
+  box-shadow: 0px 57px 42px 0px #cccccc4d ;
   height: 350px;
   width: 90%;
   padding: 5px;
@@ -341,13 +341,13 @@ footer {
   .modal {
     display: none;
     background-color: white;
-    box-shadow: 0px 0px 42px 4px #cccccc99 ;
+    box-shadow: 0px 57px 42px 0px #cccccc4d ;
     height: 500px;
     width: 40%;
     padding: 20px;
     border-radius: 10px;
     left: 55%;
-    top: 120px;
+    top: 125px;
   }
 
   .navbar {
@@ -370,13 +370,13 @@ footer {
   .modal {
     display: none;
     background-color: white;
-    box-shadow: 0px 0px 42px 4px #cccccc99 ;
+    box-shadow: 0px 57px 42px 0px #cccccc4d ;
     height: 500px;
     width: 60%;
     padding: 20px;
     border-radius: 10px;
     left: 35%;
-    top: 120px;
+    top: 125px;
   }
 
   .title {
