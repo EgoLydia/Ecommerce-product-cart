@@ -76,7 +76,6 @@ function updateCart() {
   addEvent();
 }
 
-
 const renderCartItems = function () {
   if (productInCart.length > 0) {
     let output = productInCart.map((product) => {
@@ -98,7 +97,7 @@ const renderCartItems = function () {
         <div class="amount">${product.price}</div>
       </div>
       <div class="col-2 p-4">
-        <span class="close"><i class="bi bi-trash3 fs-5 me-3"></i></span>
+        <span class="delete"><i class="bi bi-trash3 fs-5 me-3"></i></span>
       </div>
     </div>       
      `;
@@ -107,7 +106,6 @@ const renderCartItems = function () {
   } else {
     cartProducts.innerHTML = `<p>Your cart is empty</p>`;
   }
-
 };
 
 let itemNumber = document.getElementById("item-number");
@@ -115,6 +113,14 @@ let count = 0;
 function increment() {
   count = count + 1;
   itemNumber.innerText = count;
+}
+function decrement(){
+  count -=1;
+  if(count == 0){
+    itemNumber.innerText = ""
+  }else{
+    itemNumber.innerText = count
+  }  
 }
 
 function addEvent() {
@@ -183,69 +189,6 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
-const CartItems = document.querySelector('.cart-items')
 
-window.onload = () =>{
-    let CartItems = [
-        {
-          id: 0,
-          name: "T-shirt 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/1 (1).jpg",
-        },
-        {
-          id: 1,
-          name: "Product 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/1 (6).jpg",
-        },
-        {
-          id: 2,
-          name: "T-shirt 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/1 (2).jpg",
-        },
-        {
-          id: 3,
-          name: "Product 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/1 (4).jpg",
-        },
-        {
-          id: 4,
-          name: "T-shirt 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/01.jpg",
-        },
-        {
-          id: 5,
-          name: "Product 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/02.jpg",
-        },
-        {
-          id: 6,
-          name: "T-shirt 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/06.jpg",
-        },
-        {
-          id: 7,
-          name: "Product 1",
-          price: 29.99,
-          seller: "Amazon Stores",
-          imgSrc: "./assets/product-05.jpg",
-        },
-        
-    ]
-
-}
