@@ -55,17 +55,17 @@ const productInCart = [];
 
 function addToCart(id) {
   if (productInCart.some((productItem) => productItem.id === id)) {
-    // let index = productInCart.findIndex((product) => product.id === id);
-    // if (index > -1) {
-    //   productInCart[index].unitQuantity += 1;
-    
-    // let subtotal = document.getElementById("subtotal");
-    // let total = subtotal.innerText;
-    // let productPrice = parent.parentNode.children[3].children[0].innerText;
-    // let newTotal = parseFloat(total) + parseFloat(productPrice);
-    // subtotal.innerText = newTotal.toFixed(2);
-    alert('done')
-   } else {
+    // alert("exists");
+    let index = productInCart.findIndex((product) => product.id === id);
+    if (index > -1) {
+      productInCart[index].unitQuantity += 1;
+
+    let subtotal = document.getElementById("subtotal");
+    let total = subtotal.innerText;
+    let productPrice = productInCart[index].price
+    let newTotal = parseFloat(total) + parseFloat(productPrice);
+    subtotal.innerText = newTotal.toFixed(2);}
+  } else {
     const productItem = products.find((product) => product.id === id);
     let subtotal = document.getElementById("subtotal");
     let total = subtotal.innerText;
@@ -123,8 +123,9 @@ function increment() {
   count = count + 1;
   itemNumber.innerText = count;
 }
-function decrement() {
-  count -= 1;
+function decrement(unitQuantity) {
+  count -= unitQuantity;
+
   if (count == 0) {
     itemNumber.innerText = "";
   } else {
@@ -139,7 +140,8 @@ function addEvent() {
     plus[i].addEventListener("click", (e) => {
       let parent = plus[i].parentNode;
       let number = parent.children[1].innerText;
-      parent.children[1].innerText = parseInt(number) + 1;
+      parent.children[1].innerHTML = parseInt(number) + 1;
+      increment()
       let id = parseInt(parent.parentNode.getAttribute("id"));
       let index = productInCart.findIndex((product) => product.id === id);
       if (index > -1) {
@@ -160,6 +162,8 @@ function addEvent() {
       let number = parent.children[1].innerText;
       if (number > 1) {
         parent.children[1].innerText = parseInt(number) - 1;
+        itemNumber.innerHTML = parent.children[1].innerText;
+        decrement(1)
         let id = parseInt(parent.parentNode.getAttribute("id"));
         let index = productInCart.findIndex((product) => product.id === id);
         if (index > -1) {
@@ -179,24 +183,24 @@ function addEvent() {
     deleteItem[i].addEventListener("click", (e) => {
       const row = deleteItem[i].parentNode.parentNode;
       row.parentNode.removeChild(row);
-      const indexToBeRemoved = productInCart.findIndex(
-        (product, index) => index === i
-      );
-      let unitQuantity = productInCart[indexToBeRemoved].unitQuantity
-      productInCart.splice(indexToBeRemoved, 1);
-      decrement();
+      let id = parseInt(row.getAttribute("id"));
+      let index = productInCart.findIndex((product) => product.id === id);
+      let unitQuantity = productInCart[index].unitQuantity;
+      productInCart.splice(index, 1);
+      decrement(unitQuantity);
       let subtotal = document.getElementById("subtotal");
       let total = subtotal.innerText;
       let productPrice = row.children[3].children[0].innerText;
-      let newTotal = parseFloat(total) - unitQuantity * parseFloat(productPrice);
-      subtotal.innerText = newTotal.toFixed(2)
-      if(newTotal === 0){
-        subtotal.innerHTML = `<div>0</div>`
-        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`
-      }else{
+      let newTotal =
+        parseFloat(total) - unitQuantity * parseFloat(productPrice);
+
+      subtotal.innerText = newTotal.toFixed(2);
+      if (newTotal < 1) {
+        subtotal.innerHTML = `<div>0</div>`;
+        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
+      } else {
         subtotal.innerText = newTotal.toFixed(2);
       }
-
     });
   }
 }
