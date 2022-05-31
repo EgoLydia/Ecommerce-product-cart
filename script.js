@@ -268,4 +268,3 @@ function checkOut() {
 function clear() {
   localStorage.setItem("shopping-cart", []);
 }
-console.log(clear);
