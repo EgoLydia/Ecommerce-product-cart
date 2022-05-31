@@ -8,7 +8,7 @@ html, body {
 }
 
 * {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Heebo", sans-serif;
   font-weight: 400;
 }
 
@@ -287,7 +287,7 @@ footer {
   top: 281px;
 }
 
-.cart-products, .cart-checkout {
+.cart-checkout {
   width: 90%;
 }
 
@@ -339,7 +339,7 @@ footer {
   cursor: pointer;
  }
  .unitQuantity{
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 900;
   color: #202020;
  }
@@ -357,7 +357,7 @@ footer {
     top: 110px;
   }
 
-  .title {
+  /* .title {
     font-size: 20px;
     color: #3f3f3f;
   }
@@ -365,7 +365,7 @@ footer {
   .subtitle {
     font-size: 15px;
     color: #3f3f3f;
-  }
+  } */
 }
 
 @media (min-width: 767px) and (max-width: 1200px) {
@@ -381,7 +381,7 @@ footer {
     top: 110px;
   }
 
-  .title {
+  /* .title {
     font-size: 20px;
     color: #3f3f3f;
   }
@@ -389,5 +389,5 @@ footer {
   .subtitle {
     font-size: 15px;
     color: #3f3f3f;
-  }
+  } */
 }
