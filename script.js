@@ -4,7 +4,7 @@ const productParent = document.querySelector(".products");
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
 const span = document.getElementsByClassName("close")[0];
-const cartProducts = document.querySelector(".cart-products");
+let cartProducts = document.querySelector(".cart-products");
 
 function renderProducts() {
   products.forEach((product) => {
@@ -251,5 +251,10 @@ load();
 function checkOut() {
   if (productInCart.length == 0) alert("No Items were added to cart");
   else alert("Success!");
-  productInCart;
+  productInCart = [];
+  cartProducts.innerHTML = "";
+  let subtotal = document.getElementById("subtotal");
+  subtotal.innerHTML = `<div>0</div>`;
+  itemNumber.innerText = "";
+  save()
 }
