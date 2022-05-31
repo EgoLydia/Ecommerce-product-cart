@@ -4,7 +4,7 @@ const productParent = document.querySelector(".products");
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
 const span = document.getElementsByClassName("close")[0];
-const cartProducts = document.querySelector(".cart-products");
+let cartProducts = document.querySelector(".cart-products");
 
 function renderProducts() {
   products.forEach((product) => {
@@ -112,24 +112,24 @@ const renderCartItems = function () {
   if (productInCart.length > 0) {
     let output = productInCart.map((product) => {
       return `
-      <div class="cart-items d-flex align-items-center" id="${product.id}">
-      <div class="image-box p-2">
+      <div class="cart-items d-flex justify-content-between align-items-center" id="${product.id}">
+      <div col-3>
         <img src="${product.imgSrc}" style="width: 100px;"/>
       </div>
-      <div class="p-2 col-3 mt-4">
+      <div class="mt-4 col-2">
         <h1 class="title">${product.name}</h1>
         <h3 class="subtitle">${product.seller}</h3>
       </div>
-      <div class="counter p-2 col-4">
-        <div class="counter-btn minus">-</div>
+      <div class="counter col-2">
+        <div class="counter-btn minus me-1">-</div>
         <div class="unitQuantity">${product.unitQuantity}</div>
-        <div class="counter-btn plus">+</div>
+        <div class="counter-btn plus ms-1">+</div>
       </div>
-      <div class="prices p-5 col-2">
+      <div class="prices col-2 text-center ">
         <div class="amount">${product.price}</div>
       </div>
-      <div class="col-2 p-4">
-        <span class="delete"><i class="bi bi-trash3 fs-5 me-3"></i></span>
+      <div class="col-2">
+        <span class="delete"><i class="bi bi-trash3 fs-5 me-5"></i></span>
       </div>
     </div>       
      `;
@@ -249,9 +249,23 @@ window.onclick = function (event) {
 
 load();
 function checkOut() {
-  if(productInCart.length == 0)
+  if (productInCart.length == 0) {
     alert("No Items were added to cart");
-
-  else
-    alert("Success!")
+  }
+  else{ alert("Success!");
+    productInCart = [];
+    cartProducts.innerHTML = "";
+    let subtotal = document.getElementById("subtotal");
+    subtotal.innerHTML = `<div>0</div>`;
+    itemNumber.innerText = "";
+    count = 0;
+  }
+  clear()
+  save()
+  updateCart();
 }
+
+function clear() {
+  localStorage.setItem("shopping-cart", []);
+}
+console.log(clear);
