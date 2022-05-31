@@ -5,6 +5,8 @@ const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("modalBtn");
 const span = document.getElementsByClassName("close")[0];
 let cartProducts = document.querySelector(".cart-products");
+let subTotal = document.querySelector(".cart-checkout")
+let checkOutBtn = document.querySelector(".checkout-btn")
 
 function renderProducts() {
   products.forEach((product) => {
@@ -125,16 +127,21 @@ const renderCartItems = function () {
         <div class="unitQuantity">${product.unitQuantity}</div>
         <div class="counter-btn plus ms-1">+</div>
       </div>
-      <div class="prices col-2 text-center ">
-        <div class="amount">${product.price}</div>
+      <div class="prices col-2 text-center ">$
+       <span class="amount">${product.price}</span>
       </div>
       <div class="col-2">
         <span class="delete"><i class="bi bi-trash3 fs-5 me-5"></i></span>
       </div>
     </div>       
      `;
-    });
-    cartProducts.innerHTML = output.join("");
+    })
+    cartProducts.innerHTML = output.join("")     
+    subTotal.classList.remove("hide");
+    checkOutBtn.classList.remove("hide");
+  }else{
+    subTotal.classList.add("hide");
+    checkOutBtn.classList.add("hide");
   }
 };
 
@@ -221,10 +228,12 @@ function addEvent() {
           parseFloat(total) - unitQuantity * parseFloat(productPrice);
         subtotal.innerText = newTotal.toFixed(2);
         if (newTotal < 1) {
-          subtotal.innerHTML = `<div>0</div>`;
-
-          cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
+        subTotal.classList.add("hide");
+        checkOutBtn.classList.add("hide");
+        cartProducts.innerHTML = `<div class="text-center mt-3">Your cart is empty!</div>`;
         } else {
+        subTotal.classList.remove("hide");
+        checkOutBtn.classList.remove("hide");
           subtotal.innerText = newTotal.toFixed(2);
         }
         save();
@@ -254,7 +263,7 @@ function checkOut() {
   }
   else{ alert("Success!");
     productInCart = [];
-    cartProducts.innerHTML = "";
+    cartProducts.innerHTML = `Your cart is empty`;
     let subtotal = document.getElementById("subtotal");
     subtotal.innerHTML = `<div>0</div>`;
     itemNumber.innerText = "";
