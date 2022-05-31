@@ -15,15 +15,15 @@ const products = [
       },
       {
         id: 2,
-        name: "T-shirt 1",
-        price: 29.99,
-        seller: "Amazon Stores",
+        name: "Smart Backpack",
+        price: 70.39,
+        seller: "Jumia Stores",
         imgSrc: "./assets/1 (2).jpg",
       },
       {
         id: 3,
         name: "Airpod",
-        price: 29.99,
+        price: 50.99,
         seller: "Amazon Stores",
         imgSrc: "./assets/1 (4).jpg",
       },
@@ -44,7 +44,7 @@ const products = [
       {
         id: 6,
         name: "Woman One Shoulder Top",
-        price: 19.20,
+        price: 19.21,
         seller: "Styles Stores",
         imgSrc: "./assets/06.jpg",
       },
