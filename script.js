@@ -249,13 +249,23 @@ window.onclick = function (event) {
 
 load();
 function checkOut() {
-  if (productInCart.length == 0) alert("No Items were added to cart");
-  else alert("Success!");
-  productInCart = [];
-  cartProducts.innerHTML = "";
-  let subtotal = document.getElementById("subtotal");
-  subtotal.innerHTML = `<div>0</div>`;
-  itemNumber.innerText = "";
+  if (productInCart.length == 0) {
+    alert("No Items were added to cart");
+  }
+  else{ alert("Success!");
+    productInCart = [];
+    cartProducts.innerHTML = "";
+    let subtotal = document.getElementById("subtotal");
+    subtotal.innerHTML = `<div>0</div>`;
+    itemNumber.innerText = "";
+    count = 0;
+  }
+  clear()
+  save()
   updateCart();
-  save();
 }
+
+function clear() {
+  localStorage.setItem("shopping-cart", []);
+}
+console.log(clear);
